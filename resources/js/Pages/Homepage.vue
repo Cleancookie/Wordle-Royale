@@ -1,11 +1,14 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3'
+import Layout from '../Shared/Layout.vue'
 </script>
 
 <template>
 <div>
-    <h1>{{ title }}</h1>
-    <Link :href="route('about')">About</Link>
+    <Layout>
+        <h1>{{ title }}</h1>
+        <Link :href="route('about')">About</Link>
+    </Layout>
 </div>
 </template>
 
