@@ -25,16 +25,7 @@ export default {
     components: { GuessInput },
     data() {
         return {
-            guesses: [
-                {
-                    word: 'ratio',
-                    correctness: ['*', 'yellow', 'yellow', 'green', '*'],
-                },
-                {
-                    word: 'clues',
-                    correctness: ['*', 'yellow', 'yellow', 'green', '*'],
-                },
-            ],
+            guesses: this.$page.props.guesses,
             currentGuess: '',
             guessObj: {
                 word: '',

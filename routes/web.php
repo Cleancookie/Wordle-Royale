@@ -16,12 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return Inertia::render('Homepage', [
-        'title' => 'Homepage'
+        'guesses' => [
+            [
+                'word' =>  'ratio',
+                'correctness' => ['*', 'yellow', 'yellow', 'green', '*'],
+            ],
+            [
+                'word' =>  'clues',
+                'correctness' => ['*', 'yellow', 'yellow', 'green', '*'],
+            ],
+        ]
     ]);
 })->name('home');
-
-Route::get('/about', function () {
-    return Inertia::render('About', [
-        'title' => 'About'
-    ]);
-})->name('about');
