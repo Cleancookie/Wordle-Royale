@@ -7,8 +7,8 @@
 
     <title>Laravel</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>
-
     @inertiaHead
 </head>
 
