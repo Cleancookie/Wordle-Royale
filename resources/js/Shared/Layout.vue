@@ -1,10 +1,11 @@
 <template>
-    <h1>Main layout</h1>
-    <slot />
+    <div class="w-full">
+        <slot />
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'layout'
-}
+    name: 'layout',
+};
 </script>

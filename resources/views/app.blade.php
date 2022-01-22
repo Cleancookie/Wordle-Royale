@@ -8,11 +8,13 @@
     <title>Laravel</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     @routes
+    <script src="{{ mix('/js/manifest.js') }}" defer></script>
+    <script src="{{ mix('/js/vendor.js') }}" defer></script>
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
 </head>
 
-<body>
+<body class="bg-gray-200 min-h-screen">
     @inertia
     <div id="app"></div>
 </body>

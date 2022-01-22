@@ -15,14 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    sleep(1);
     return Inertia::render('Homepage', [
         'title' => 'Homepage'
     ]);
 })->name('home');
 
 Route::get('/about', function () {
-    sleep(1);
     return Inertia::render('About', [
         'title' => 'About'
     ]);
