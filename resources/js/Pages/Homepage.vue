@@ -1,6 +1,7 @@
 <script setup>
 import Board from '../Components/Wordle/Board.vue';
 </script>
+
 <template>
     <board />
 </template>

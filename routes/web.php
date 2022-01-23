@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Ajax\NicknameController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,7 @@ Route::get('/', function () {
         ]
     ]);
 })->name('home');
+
+Route::get('nickname', [NicknameController::class, 'index'])->name('nickname.index');
+Route::post('nickname', [NicknameController::class, 'store'])->name('nickname.store');
+Route::delete('nickname', [NicknameController::class, 'destroy'])->name('nickname.destroy');
