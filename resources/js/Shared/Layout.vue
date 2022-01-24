@@ -14,10 +14,11 @@
 import axios from 'axios';
 export default {
     name: 'layout',
-    data() {
-        return {
-            nickname: this.$page.props.nickname || 'set nickname',
-        };
+    data() {},
+    computed: {
+        nickname() {
+            return this.$page.props.nickname;
+        },
     },
     methods: {
         async setNickname() {
@@ -25,7 +26,7 @@ export default {
             let response = await axios.post(route('nickname.store'), {
                 nickname: nickname,
             });
-            console.log(response);
+            this.$inertia.reload({ only: ['nickname'] });
         },
     },
 };

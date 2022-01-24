@@ -5,20 +5,18 @@ namespace App\Actions\Nickname;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class SetNickname
+class GetNickname
 {
     use AsAction;
 
-    public function handle(string $nickname = 'Unknown 👻')
+    public function handle()
     {
-        session()->put('nickname', $nickname);
-
-        return $nickname;
+        return session('nickname');
     }
 
     public function asController(Request $request)
     {
-        return $this->handle($request->nickname);
+        return $this->handle();
     }
 
     public function jsonResponse(string $nickaname)
