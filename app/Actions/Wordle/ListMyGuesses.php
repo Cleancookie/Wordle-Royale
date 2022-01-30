@@ -4,7 +4,7 @@ namespace App\Actions\Wordle;
 
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class GetMyGuesses
+class ListMyGuesses
 {
     use AsAction;
 

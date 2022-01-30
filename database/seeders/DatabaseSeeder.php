@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Actions\ImportWords;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Why fake words when we can just import them l0l
+        ImportWords::make()->handle();
     }
 }

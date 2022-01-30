@@ -19,13 +19,15 @@ class ImportWords
 
     public function handle()
     {
-        $words = collect(Http::get($this->answerList)->json())->sort()->values()->each(function ($word) {
-            $newWord = Word::firstOrCreate(['name' => $word, 'is_answer' => true]);
+        $words = collect(Http::get($this->acceptedWords)->json())->sort()->values()->map(function ($word) {
+            return ['name' => strtolower($word), 'is_answer' => false];
         });
+        Word::query()->upsert($words->toArray(), 'name', ['name', 'is_answer']);
 
-        $words = collect(Http::get($this->acceptedWords)->json())->sort()->values()->each(function ($word) {
-            $newWord = Word::firstOrCreate(['name' => $word]);
+        $words = collect(Http::get($this->answerList)->json())->sort()->values()->map(function ($word) {
+            return ['name' => strtolower($word), 'is_answer' => true];
         });
+        Word::query()->upsert($words->toArray(), 'name', ['name', 'is_answer']);
     }
 
     public function asCommand(Command $command): void

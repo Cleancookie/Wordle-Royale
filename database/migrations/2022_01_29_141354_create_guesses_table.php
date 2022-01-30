@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Round;
+use App\Models\Word;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWordsTable extends Migration
+class CreateGuessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +15,11 @@ class CreateWordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('words', function (Blueprint $table) {
+        Schema::create('guesses', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->boolean('is_answer')->default(false);
+            $table->foreignIdFor(Round::class, 'round_id');
+            $table->string('session_id');
+            $table->foreignIdFor(Word::class, 'word');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateWordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('words');
+        Schema::dropIfExists('guesses');
     }
 }

@@ -167,10 +167,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'layout',
-  data: function data() {
-    return {
-      nickname: this.$page.props.nickname || 'set nickname'
-    };
+  data: function data() {},
+  computed: {
+    nickname: function nickname() {
+      return this.$page.props.nickname;
+    }
   },
   methods: {
     setNickname: function setNickname() {
@@ -190,10 +191,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                _this.$page.props.nickname = response.data.nickname;
-                _this.nickname = response.data.nickname;
 
-              case 6:
+                _this.$inertia.reload({
+                  only: ['nickname']
+                });
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -354,7 +357,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[0] || (_cache[0] = function () {
       return $options.setNickname && $options.setNickname.apply($options, arguments);
     })
-  }, [$data.nickname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.nickname), 1
+  }, [$options.nickname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.nickname), 1
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])], 64
   /* STABLE_FRAGMENT */

@@ -9,6 +9,9 @@ class WordleController extends Controller
 {
     public function index()
     {
+        // is this user in a room already?
+
+
         return Inertia::render('Homepage', [
             'guesses' => [
                 [
